@@ -25,7 +25,8 @@ namespace Hover.Common.Display {
 		public MeshBuilder HighlightMeshBuilder { get; private set; }
 		public MeshBuilder SelectMeshBuilder { get; private set; }
 
-		public Color BackgroundColor { get; private set; }
+        public Texture BackgroundImage { get; private set; }
+        public Color BackgroundColor { get; private set; }
 		public Color EdgeColor { get; private set; }
 		public Color HighlightColor { get; private set; }
 		public Color SelectColor { get; private set; }
@@ -72,7 +73,8 @@ namespace Hover.Common.Display {
 			Highlight.GetComponent<MeshFilter>().sharedMesh = HighlightMeshBuilder.Mesh;
 			Select.GetComponent<MeshFilter>().sharedMesh = SelectMeshBuilder.Mesh;
 
-			BackgroundColor = Color.clear;
+            BackgroundImage = null;
+            BackgroundColor = Color.clear;
 			EdgeColor = Color.clear;
 			SelectColor = Color.clear;
 			HighlightColor = Color.clear;
@@ -141,8 +143,21 @@ namespace Hover.Common.Display {
 			BackgroundColor = pColor;
 		}
 
-		/*--------------------------------------------------------------------------------------------*/
-		public virtual void UpdateEdge(Color pColor) {
+        /*--------------------------------------------------------------------------------------------*/
+        public virtual void UpdateBackgroundImage(Texture pTexture)
+        {
+            if (pTexture != BackgroundImage && pTexture != null)
+            {
+                Background.GetComponent<MeshRenderer>().material.mainTexture = pTexture;
+                Background.GetComponent<MeshRenderer>().material.shader = Shader.Find("SelfIllumAlpha");
+                Background.transform.Translate(0, 0.001F, 0);
+            }
+
+            BackgroundImage = pTexture;
+        }
+
+        /*--------------------------------------------------------------------------------------------*/
+        public virtual void UpdateEdge(Color pColor) {
 			Edge.SetActive(pColor.a > 0);
 
 			if ( pColor != EdgeColor ) {

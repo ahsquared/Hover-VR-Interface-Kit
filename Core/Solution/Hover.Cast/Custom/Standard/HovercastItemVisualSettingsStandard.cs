@@ -18,6 +18,7 @@ namespace Hover.cast.Custom.Standard {
 		public string TextFont = "Tahoma";
 		public Color ArrowIconColor = new Color(1, 1, 1);
 		public Color ToggleIconColor = new Color(1, 1, 1);
+        public Texture BackgroundImage;
 		public Color BackgroundColor = new Color(0.1f, 0.1f, 0.1f, 0.666f);
 		public Color EdgeColor = new Color(1, 1, 1, 1);
 		public Color HighlightColor = new Color(0.1f, 0.5f, 0.9f);
@@ -42,6 +43,7 @@ namespace Hover.cast.Custom.Standard {
 				sett.TextFont = TextFont;
 				sett.ArrowIconColor = ArrowIconColor;
 				sett.ToggleIconColor = ToggleIconColor;
+                sett.BackgroundImage = BackgroundImage;
 				sett.BackgroundColor = BackgroundColor;
 				sett.EdgeColor = EdgeColor;
 				sett.HighlightColor = HighlightColor;

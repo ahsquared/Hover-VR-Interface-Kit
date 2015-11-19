@@ -42,9 +42,9 @@ namespace Hover.Cast.Display.Standard {
 			vHoverSlice = new UiHoverMeshSlice(gameObject);
 			vHoverSlice.UpdateSize(InnerRadius, OuterRadius, pArcAngle);
 
-			////
+            ////
 
-			var labelObj = new GameObject("Label");
+            var labelObj = new GameObject("Label");
 			labelObj.transform.SetParent(gameObject.transform, false);
 			labelObj.transform.localPosition = new Vector3(0, 0, 1);
 			labelObj.transform.localRotation = Quaternion.FromToRotation(Vector3.back, Vector3.right);
@@ -96,12 +96,13 @@ namespace Hover.Cast.Display.Standard {
 			colHigh.a *= high*vMainAlpha;
 			colSel.a *= selectAlpha*vMainAlpha;
 
-			vHoverSlice.UpdateBackground(colBg);
+            vHoverSlice.UpdateBackgroundImage(vSettings.BackgroundImage);
+            vHoverSlice.UpdateBackground(colBg);
 			vHoverSlice.UpdateEdge(colEdge);
 			vHoverSlice.UpdateHighlight(colHigh, high);
 			vHoverSlice.UpdateSelect(colSel, select);
 
-			if ( vSettings.TextSize != vLabel.FontSize ) {
+            if ( vSettings.TextSize != vLabel.FontSize ) {
 				vLabel.SetSize(ArcCanvasThickness*ArcCanvasScale, 
 					vSettings.TextSize*1.5f*ArcCanvasScale, vSettings.TextSize*0.6f, ArcCanvasScale);
 			}

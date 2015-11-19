@@ -15,8 +15,9 @@ namespace Hover.Cast.Custom.Standard {
 		public string TextFont { get; set; }
 		public Color ArrowIconColor { get; set; }
 		public Color ToggleIconColor { get; set; }
-		public Color BackgroundColor { get; set; }
-		public Color EdgeColor { get; set; }
+        public Texture BackgroundImage { get; set; }
+        public Color BackgroundColor { get; set; }
+        public Color EdgeColor { get; set; }
 		public Color HighlightColor { get; set; }
 		public Color SelectionColor { get; set; }
 		public Color SliderTrackColor { get; set; }
@@ -39,6 +40,7 @@ namespace Hover.Cast.Custom.Standard {
 			TextFont = sett.TextFont;
 			ArrowIconColor = sett.ArrowIconColor;
 			ToggleIconColor = sett.ToggleIconColor;
+            BackgroundImage = sett.BackgroundImage;
 			BackgroundColor = sett.BackgroundColor;
 			EdgeColor = sett.EdgeColor;
 			HighlightColor = sett.HighlightColor;
